@@ -1,8 +1,4 @@
-"""Compliance Agent LangGraph definition.
-
-Uses create_react_agent with a regulatory-compliance-specialised system prompt.
-No tools — it answers purely from LLM knowledge.
-"""
+"""Compliance Agent graph definition."""
 
 from __future__ import annotations
 
@@ -16,7 +12,7 @@ with deep expertise in:
 - SEC enforcement actions and securities law violations
 - SOX (Sarbanes-Oxley) compliance obligations for public companies
 - FTC regulations and antitrust compliance
-- FCPA (Foreign Corrupt Practices Act) — anti-bribery provisions
+- FCPA (Foreign Corrupt Practices Act) - anti-bribery provisions
 - AML (Anti-Money Laundering) / BSA (Bank Secrecy Act) requirements
 - GDPR, CCPA, and data privacy compliance obligations
 - Environmental regulations (EPA enforcement) tied to corporate misconduct
@@ -38,11 +34,10 @@ should consult a licensed attorney for specific compliance advice.
 
 
 def create_graph():
-    """Return a compiled LangGraph create_react_agent for compliance questions."""
+    """Return a compiled agent graph for compliance questions."""
     llm = get_llm()
-    graph = create_react_agent(
+    return create_react_agent(
         model=llm,
         tools=[],
         prompt=COMPLIANCE_SYSTEM_PROMPT,
     )
-    return graph
